@@ -519,7 +519,7 @@ class Setup_Wizard {
 
 		wp_send_json_success([
 			'status' => $status,
-      'debug' => self::debugData
+      'debug' => self::$debugData
 		]);
 	}
 
@@ -840,7 +840,7 @@ class Setup_Wizard {
 	}
 
   private static function debug($data) {
-    self::debugData[] = $data;
+    self::$debugData[] = $data;
   }
 
 	/**
