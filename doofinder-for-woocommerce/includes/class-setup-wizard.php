@@ -861,6 +861,8 @@ class Setup_Wizard {
 		$token = $_POST['token'] ?? '';
 		$saved_token = $this->getToken();
 
+    self::debug( ["token" => $token, "saved_token" => $saved_token] );
+
 		// Exit early if tokens do not match
 		if ($token !== $saved_token) {
 			$this->errors['wizard-step-1'] = __( 'Invalid token', 'woocommerce-doofinder' );
