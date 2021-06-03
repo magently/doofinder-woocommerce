@@ -840,12 +840,7 @@ class Setup_Wizard {
 	}
 
   private function debug($data) {
-    if (!isset($this->debugData["step"])) {
-      $this->debugData["step"] = -1;
-      $this->debugData["data"] = array();
-    }
-
-    $this->debugData[++$this->debugData["step"]] = $data;
+    $this->debugData[] = $data;
   }
 
 	/**
