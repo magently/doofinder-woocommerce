@@ -848,9 +848,9 @@ class Setup_Wizard {
 	 */
 	private function process_step_1($processing = false) {
 
-    self::debug("processing:" . $processing);
-
 		$is_processing = (isset($_REQUEST['process-step']) && $_REQUEST['process-step'] === '1') || $processing === true;
+
+    self::debug( ["processing" => $processing, "is_processing" => $is_processing, "process_step" => $_REQUEST['process-step']] );
 
 		if (!$is_processing) {
 			return;
