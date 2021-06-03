@@ -516,7 +516,10 @@ class Setup_Wizard {
 		}
 
 		wp_send_json_success([
-			'status' => $status
+			'status' => $status,
+      'api_key' => Settings::get_api_key(),
+      'api_host' => Settings::get_api_host(),
+      'admin_endpoint' => Settings::get_admin_endpoint()
 		]);
 	}
 
