@@ -881,6 +881,8 @@ class Setup_Wizard {
 		// Required fields are not present or empty.
 		if ( ! isset($api_key) || !$api_key || ! isset($api_host) || !$api_host || ! isset($admin_endpoint) || !$admin_endpoint || ! isset($search_endpoint) || !$search_endpoint) {
 
+      self::debug( "faltan datos que no se han guardado!!!" );
+
 			if ( ! isset( $api_key ) || !$api_key ) {
 				$this->errors['wizard-step-1']['api-key'] = __( 'API key is missing.', 'woocommerce-doofinder' );
 				setcookie( "doofinderError[wizard-step-1][api-key]", __( 'API key is missing.', 'woocommerce-doofinder' ),0,'/');
@@ -943,6 +945,7 @@ class Setup_Wizard {
 		}
 
 		if ($response) {
+      self::debug( "guardar las opciones!!!" );
 			// Everything is ok - save the options
 
 			// Check if api key already exists and is the same
@@ -985,7 +988,7 @@ class Setup_Wizard {
 			self::next_step(2);
 
 		} else {
-
+      self::debug( "response es false!!!" );
 			$this->errors['wizard-step-1'] = __( 'Something went wrong.', 'woocommerce-doofinder' );
 			setcookie( "doofinderError[wizard-step-1]", __( 'Something went wrong.','woocommerce-doofinder' ),0,'/');
 			$this->log->log( 'Processing Wizard Step 1 - Error - Something went wrong.' );
