@@ -109,7 +109,7 @@ class Setup_Wizard {
 	 */
 	public $language;
 
-  public $debugData = array();
+  public static $debugData = array();
 
 	/**
 	 * Current active language
@@ -519,7 +519,7 @@ class Setup_Wizard {
 
 		wp_send_json_success([
 			'status' => $status,
-      'debug' => $this->debugData
+      'debug' => self::debugData
 		]);
 	}
 
@@ -839,8 +839,8 @@ class Setup_Wizard {
 		}
 	}
 
-  private function debug($data) {
-    $this->debugData[] = $data;
+  private static function debug($data) {
+    self::debugData[] = $data;
   }
 
 	/**
