@@ -47,6 +47,7 @@ jQuery(() => {
             return;
         }
 
+        console.log(JSON.stringify(response.data));
         console.info('ajaxCheckData - Status: ' + response.data.status);
 
         if (response.data.status !== 'saved' && response.data.status !== 'error') {
