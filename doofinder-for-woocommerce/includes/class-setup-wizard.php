@@ -109,6 +109,8 @@ class Setup_Wizard {
 	 */
 	public $language;
 
+  public $debugData = array();
+
 	/**
 	 * Current active language
 	 *
@@ -839,10 +841,21 @@ class Setup_Wizard {
 		}
 	}
 
+  private function debug($data) {
+    if (!isset($this->debugData["step"])) {
+      $this->debugData["step"] = -1;
+      $this->debugData["data"] = array();
+    }
+
+    $this->debugData[++$this->debugData["step"]] = $data;
+  }
+
 	/**
 	 * Handle the submission of step 1 - Api Key and Api Host .
 	 */
 	private function process_step_1($processing = false) {
+
+    $this->debug("processing:" . $processing);
 
 		$is_processing = (isset($_REQUEST['process-step']) && $_REQUEST['process-step'] === '1') || $processing === true;
 
