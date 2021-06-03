@@ -916,6 +916,7 @@ class Setup_Wizard {
 
 		if(!$this->disable_api) {
 			try {
+        self::debug( "api key: " . $api_key . " api host: " . $api_host );
 				$client = new ManagementClient($api_host,$api_key);
 				$this->log->log( 'Wizard Step 1 - Call Api - List search engines ' );
 				$this->log->log( 'Wizard Step 1 - API key: ' . $api_key );
